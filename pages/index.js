@@ -1,12 +1,13 @@
 const WP_API = process.env.WP_URL;
 export default function Home(props) {
-  const val = props.data.data.posts.nodes[0];
+  console.log(props);
+  const val = props.data.data.posts.nodes[0] || 0;
   
   return (
     <>
     <h1>hello</h1>
-    <h1>Date : {val.date}</h1>
-    <h1>Slug : {val.slug}</h1>
+    <h1>Date : {val.date && 'no data available'}</h1>
+    <h1>Slug : {val.slug && 'no data available'}</h1>
     </>
   )
 }

@@ -16,7 +16,9 @@ export default function Home(props) {
               <h1>
                 Slug:{data.slug}
               </h1>
+              <h1>hello</h1>
               </div>
+
 
             )
           })

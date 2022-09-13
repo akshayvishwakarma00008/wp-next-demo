@@ -1,13 +1,27 @@
 const WP_API = process.env.WP_URL;
 export default function Home(props) {
   console.log(props);
-  const val = props.data.data.posts.nodes[0] || 0;
+  const val = props.data.data.posts.nodes;
   
   return (
     <>
-    <h1>hello</h1>
-    <h1>Date : {val.date && 'no data available'}</h1>
-    <h1>Slug : {val.slug && 'no data available'}</h1>
+    {
+      val.length >0 ?
+          val.map((data)=>{
+            return(
+              <div key={data.date}>
+              <h1>
+                date:{data.date}
+              </h1>
+              <h1>
+                Slug:{data.slug}
+              </h1>
+              </div>
+
+            )
+          })
+      :<h1>no Posts found</h1>
+    }
     </>
   )
 }
